@@ -12,8 +12,11 @@
       <p>No pantry items found.</p>
     <% } else { %>
       <ul>
-        test
+        <% pantry.forEach(food => { %>
+          <li><strong><%= food.name %></strong> - <%= food.quantity %></li>
+        <% }) %>
       </ul>
     <% } %>
   </body>
+  <a href="/users/">Back</a>
 </html>
