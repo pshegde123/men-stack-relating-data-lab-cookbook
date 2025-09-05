@@ -8,12 +8,14 @@
   <body>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Welcome to my Pantry</h1>
-    <p>Here are all your food items:</p>
-    <ul>
-      <% pantry.forEach(food => { %>
-        <li>
-          <strong><%= food.name %></strong> %> - 
-          <a
+    <% if (pantry.length === 0) { %>
+      <p>No pantry items found.</p>
+    <% } else { %>
+      <ul>
+        <% pantry.forEach(food => { %>
+          <li>
+            <strong><%= food.name %> - <%= food.quantity %></strong> - 
+            <a
             href="/users/<%= user._id %>/foods/<%= food._id %>/edit"
           >
             Edit Item
@@ -27,6 +29,7 @@
         </li>
       <% }) %>
     </ul>
+    <% } %>
     <a href="/users/<%=user._id%>/foods/new">Add a new food item</a>
   </body>
 </html>

@@ -5,6 +5,11 @@ const foodSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  quantity: {
+    type: Number,
+    required: true,
+    min: 1,
+  }
 });
 
 const userSchema = mongoose.Schema({
